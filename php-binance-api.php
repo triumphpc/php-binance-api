@@ -1007,6 +1007,45 @@ class API
         return $ticker['price'];
     }
 
+
+	/**
+	 * Create margin order for buy symbol
+	 *
+	 * @param string $symbol
+	 * @param float $amount
+	 * @return array
+	 * @throws Exception
+	 */
+	public function marginBuy(string $symbol, float $amount): array {
+		return  $this->httpRequest("v1/margin/order", "POST", [
+			"sapi" => true,
+			"symbol" => $symbol,
+			"quantity" => $amount,
+			"side" => "BUY",
+			"timestamp" => time(),
+			"type" => "MARKET",
+		], true);
+	}
+
+	/**
+	 * Create margin order for sell symbol
+	 *
+	 * @param string $symbol
+	 * @param float $amount
+	 * @return array
+	 * @throws Exception
+	 */
+	public function marginSell(string $symbol, float $amount): array {
+		return $this->httpRequest("v1/margin/order", "POST", [
+			"sapi" => true,
+			"symbol" => $symbol,
+			"quantity" => $amount,
+			"side" => "SELL",
+			"timestamp" => time(),
+			"type" => "MARKET",
+		], true);
+	}
+
     /**
      * bookPrices get all bid/asks prices
      *

@@ -4,24 +4,30 @@ $api = new Binance\API("<api key>","<secret>");
 
 // Get latest price of all symbols
 $tickers = $api->prices();
-print_r($tickers); // List prices of all symbols
+//print_r($tickers); // List prices of all symbols
 
 // Get latest price of a symbol
-$price = $api->price('BNBBTC');
-echo "Price of BNB: {$price} BTC.\n";
+//$price = $api->price('BNBBTC');
+//echo "Price of BNB: {$price} BTC.\n";
+
+$result = $api->marginBuy("DOGEUSDT", 38);
+$result = $api->marginSell("DOGEUSDT", 38);
+
+
+
 
 // Get all of your positions, including estimated BTC value
-$balances = $api->balances($tickers);
-print_r($balances);
-
-// Get all bid/ask prices
-$bookPrices = $api->bookPrices();
-print_r($bookPrices);
-echo "BTC owned: ".$balances['BTC']['available']."\n";
-echo "ETH owned: ".$balances['ETH']['available']."\n";
-echo "Estimated Value: ".$api->btc_value." BTC\n";
-
-// Place a LIMIT order
+//$balances = $api->balances($tickers);
+//print_r($balances);
+//
+//// Get all bid/ask prices
+//$bookPrices = $api->bookPrices();
+//print_r($bookPrices);
+//echo "BTC owned: ".$balances['BTC']['available']."\n";
+//echo "ETH owned: ".$balances['ETH']['available']."\n";
+//echo "Estimated Value: ".$api->btc_value." BTC\n";
+//
+//// Place a LIMIT order
 //$quantity = 1;
 //$price = 0.0005;
 //$order = $api->buy("BNBBTC", $quantity, $price);
@@ -69,8 +75,8 @@ echo "Estimated Value: ".$api->btc_value." BTC\n";
 
 // Get Kline/candlestick data for a symbol
 // Periods: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
-$ticks = $api->candlesticks("BNBBTC", "5m");
-print_r($ticks);
+//$ticks = $api->candlesticks("BNBBTC", "5m");
+//print_r($ticks);
 
 // Aggregate Trades List
 //$trades = $api->aggTrades("BNBBTC");
@@ -91,13 +97,13 @@ print_r($ticks);
 
 
 // Grab realtime updated depth cache via WebSockets
-$api->depthCache(["BNBBTC"], function($api, $symbol, $depth) {
-    echo "{$symbol} depth cache update\n";
-    $limit = 11; // Show only the closest asks/bids
-    $sorted = $api->sortDepth($symbol, $limit);
-    $bid = $api->first($sorted['bids']);
-    $ask = $api->first($sorted['asks']);
-    echo $api->displayDepth($sorted);
-    echo "ask: {$ask}\n";
-    echo "bid: {$bid}\n";
-});
+//$api->depthCache(["BNBBTC"], function($api, $symbol, $depth) {
+//    echo "{$symbol} depth cache update\n";
+//    $limit = 11; // Show only the closest asks/bids
+//    $sorted = $api->sortDepth($symbol, $limit);
+//    $bid = $api->first($sorted['bids']);
+//    $ask = $api->first($sorted['asks']);
+//    echo $api->displayDepth($sorted);
+//    echo "ask: {$ask}\n";
+//    echo "bid: {$bid}\n";
+//});
