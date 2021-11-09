@@ -10,8 +10,10 @@ $tickers = $api->prices();
 //$price = $api->price('BNBBTC');
 //echo "Price of BNB: {$price} BTC.\n";
 
-$result = $api->marginBuy("DOGEUSDT", 38);
-$result = $api->marginSell("DOGEUSDT", 38);
+//$result = $api->marginBuy("DOGEUSDT", 40);
+//$result = $api->marginSell("DOGEUSDT", 80);
+
+print_r($result);
 
 
 
