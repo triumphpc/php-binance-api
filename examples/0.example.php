@@ -13,10 +13,6 @@ $tickers = $api->prices();
 //$result = $api->marginBuy("DOGEUSDT", 40);
 //$result = $api->marginSell("DOGEUSDT", 80);
 
-print_r($result);
-
-
-
 
 // Get all of your positions, including estimated BTC value
 //$balances = $api->balances($tickers);
