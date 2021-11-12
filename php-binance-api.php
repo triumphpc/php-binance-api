@@ -1024,7 +1024,7 @@ class API
 			"side" => "BUY",
 			"timestamp" => time(),
 			"type" => "MARKET",
-			"sideEffectType" => "AUTO_REPAY"
+			"sideEffectType" => ["AUTO_REPAY", "MARGIN_BUY"]
 		], true);
 	}
 
@@ -1044,7 +1044,7 @@ class API
 			"side" => "SELL",
 			"timestamp" => time(),
 			"type" => "MARKET",
-			"sideEffectType" => "MARGIN_BUY"
+			"sideEffectType" => ["AUTO_REPAY", "MARGIN_BUY"]
 		], true);
 	}
 
